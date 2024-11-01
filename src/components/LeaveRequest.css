@@ -1,0 +1,72 @@
+.leave-request-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.leave-request-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.leave-request-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.leave-request-form div {
+  margin-bottom: 15px;
+}
+
+.leave-request-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333538;
+}
+
+.leave-request-form input,
+.leave-request-form select,
+.leave-request-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: cursive;
+}
+
+.leave-request-form textarea {
+  resize: vertical;
+}
+
+.leave-request-form button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.leave-request-form button:hover {
+  background-color: #45a049;
+}
+
+.leave-request-container p {
+  text-align: center;
+  margin: 10px 0;
+}
+
+body {
+  background-image: url("https://thumbs.dreamstime.com/b/pretty-pink-anime-wallpaper-high-detail-plain-background-visually-stunning-featuring-color-scheme-intricate-details-330645023.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}

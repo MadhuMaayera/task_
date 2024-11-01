@@ -1,0 +1,62 @@
+.fc {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.fc-button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  margin: 0 2px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fc-button:hover {
+  background-color: #0056b3;
+}
+
+.fc-event {
+  background-color: #28a745 !important; /* Green color for approved leaves */
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.fc-daygrid-event-dot {
+  background-color: #28a745 !important;
+}
+
+.fc-event:hover {
+  background-color: #218838 !important;
+  cursor: pointer;
+}
+
+.fc-day-today {
+  background-color: #e0f7fa !important;
+}
+
+.fc-day-sat,
+.fc-day-sun {
+  background-color: #f8f9fa;
+}
+
+.fc-popover {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}

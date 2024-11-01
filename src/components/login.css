@@ -1,0 +1,82 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  padding: 5rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: content-box;
+}
+
+.login-form div {
+  margin-bottom: 1.5rem;
+}
+
+.login-form label {
+  display: block;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d9e6;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333333;
+}
+
+.login-form input:focus {
+  border-color: #3f8efc;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(63, 142, 252, 0.2);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #3f8efc;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #357ae0;
+}
+
+/* Style success and error messages */
+.login-container p {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.login-container p[style*="color: red"] {
+  color: #e74c3c;
+}
+
+.login-container p[style*="color: green"] {
+  color: #2ecc71;
+}
+body {
+  background-image: url("https://t4.ftcdn.net/jpg/01/19/11/55/360_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+}
