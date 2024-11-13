@@ -1,21 +1,35 @@
-const db = require("../config/db.config");
+import { DataTypes } from "sequelize";
+import { sequelize } from "../config/db.js";
 
-const LeaveRequest = {
-  submitLeaveRequest: (leaveRequest, callback) => {
-    const { user_id, leave_type, start_date, end_date, reason } = leaveRequest;
-    const sql =
-      "INSERT INTO leave_requests (user_id, leave_type, start_date, end_date, reason) VALUES (?, ?, ?, ?, ?)";
-    db.query(
-      sql,
-      [user_id, leave_type, start_date, end_date, reason],
-      callback
-    );
+const LeaveRequest = sequelize.define("LeaveRequest", {
+  leaveType: {
+    type: DataTypes.ENUM("Sick Leave", "Vacation Leave", "Unpaid Leave"),
+    allowNull: false,
   },
-  approveLeaveRequest: (id, status, manager_comment, callback) => {
-    const sql =
-      "UPDATE leave_requests SET status = ?, manager_comment = ?, approved_at = CURRENT_TIMESTAMP WHERE id = ?";
-    db.query(sql, [status, manager_comment, id], callback);
+  startDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
   },
-};
+  endDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  reason: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.ENUM("Pending", "Approved", "Rejected"),
+    defaultValue: "Pending",
+  },
+  appliedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+});
 
-module.exports = LeaveRequest;
+export default LeaveRequest;

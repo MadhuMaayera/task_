@@ -1,27 +1,41 @@
-const jwt = require("jsonwebtoken");
-exports.verifyToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
-  if (!token) {
-    console.log("No token provided");
-    return res.status(403).json({ error: "No token provided" });
-  }
+const verifyUser = async (req, res, next) => {
+  // Ensure 'req', 'res', 'next' are passed
+  try {
+    // Get the token from Authorization header
+    const token = req.headers.authorization.split(" ")[1];
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      console.error("Token verification error:", err);
-      return res.status(500).json({ error: "Failed to authenticate token" });
+    if (!token) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Token not provided" });
     }
-    req.userId = decoded.id;
-    req.roleId = decoded.role_id;
+
+    // Verify the token
+    const decoded = jwt.verify(token, process.env.JWT_KEY);
+
+    if (!decoded) {
+      return res.status(404).json({ success: false, error: "Token Not Valid" });
+    }
+
+    // Find user using the decoded _id
+    const user = await User.findByPk(decoded._id); // Correct Sequelize method is 'findByPk'
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: "User not found" });
+    }
+
+    // Attach user to the request object
+    req.user = user;
+
+    // Proceed to the next middleware/route handler
     next();
-  });
-};
-exports.isManager = (req, res, next) => {
-  if (req.roleId !== 2) {
-    // Assuming '2' is the role ID for managers
-    return res.status(403).json({ error: "Requires manager role" }); // Forbidden if not a manager
+  } catch (error) {
+    console.error("Error in verifyUser middleware:", error); // Log the error for debugging
+    return res.status(500).json({ success: false, error: "Server error" });
   }
-  next();
 };
+
+export default verifyUser;

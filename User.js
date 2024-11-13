@@ -1,15 +1,44 @@
-const db = require("../config/db.config");
-const User = {
-  findByEmail: (email, callback) => {
-    const sql = "SELECT * FROM users WHERE email = ?";
-    db.query(sql, [email], callback);
-  },
-  createUser: (user, callback) => {
-    const { name, email, password, role_id } = user;
-    const sql =
-      "INSERT INTO users (name, email, password, role_id) VALUES (?, ?, ?, ?)";
-    db.query(sql, [name, email, password, role_id], callback);
-  },
-};
+import { DataTypes, Sequelize } from "sequelize";
+import { sequelize } from "../config/db.js";
 
-module.exports = User;
+const User = sequelize.define(
+  "User",
+  {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    role: {
+      type: DataTypes.ENUM,
+      values: ["admin", "employee"],
+      allowNull: false,
+    },
+    profileImage: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.NOW,
+    },
+  },
+  {
+    tableName: "users",
+    timestamps: false,
+  }
+);
+
+export default User;

@@ -1,0 +1,112 @@
+.font-bold {
+  font-weight: 700;
+}
+
+.react-calendar {
+  border: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.react-calendar__navigation {
+  background-color: #ab47bc;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-calendar__navigation button {
+  color: white;
+  font-weight: bold;
+  margin: 0 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #ba68c8;
+  cursor: pointer;
+}
+
+.react-calendar__month-view__weekdays {
+  background-color: #b280ea;
+  font-weight: bold;
+  color: #151615;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.react-calendar__tile {
+  padding: 0.8rem;
+  border-radius: 8px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+.react-calendar__tile--now {
+  background-color: #ff80ab;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #333;
+}
+
+.react-calendar__tile--active {
+  background-color: #fafafa;
+  color: rgb(46, 44, 44);
+  border-radius: 50%;
+}
+
+.react-calendar__tile:enabled:hover {
+  background-color: #15aaef;
+  color: #f0ebeb;
+  border-radius: 8px;
+}
+
+.react-calendar__tile--hasActive {
+  background-color: #ff80ab;
+  border-radius: 8px;
+}
+
+.bg-blue-leave {
+  background-color: #2196f3 !important;
+  color: white !important;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 0.8rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.react-calendar__tile:hover {
+  border: 2px solid #ff80ab;
+}
+
+.react-calendar__tile--active:hover {
+  border: 2px solid #f0e7e7;
+}
